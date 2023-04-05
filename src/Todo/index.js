@@ -7,6 +7,10 @@ function Task() {
   const {taskStore}=useStore()
   const [taskValue,setTaskValue]=useState('')
   function addTask(e){
+    if(!taskValue){
+      alert('内容不能为空！！！')
+      return
+    }
     if(e.keyCode===13){
       taskStore.addTask({
         id:uuid(),
